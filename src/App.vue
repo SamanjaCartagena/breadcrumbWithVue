@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 >{{currentEmployee}}</h1>
+    <h1>{{currentEmployee}}</h1>
   <div>
    <button @click="clicked($event.target.value)" value="Ann">Ann</button>
    <button @click="clicked($event.target.value)" value="Joe">Joe</button>
@@ -26,24 +26,29 @@
 export default {
 data(){
   return{
-    currentEmployee:'Ann',
+    currentEmployee:'',
     stack:[]
   }
 },
 
 created(){
+  this.currentEmployee= this.stack[this.stack.length-1]
 
 },
 methods:{
   clicked(val){
     if(val.includes('Delete')){
       this.stack.pop()
+        this.currentEmployee= this.stack[this.stack.length-1]
+
     }
     else{
     console.log(val+" has been clicked")
     this.currentEmployee=''+val
     if(this.stack.includes(val)){
-      continue;
+      
+     
+
     }else{
 
     
