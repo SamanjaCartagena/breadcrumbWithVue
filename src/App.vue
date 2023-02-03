@@ -42,7 +42,13 @@ methods:{
     else{
     console.log(val+" has been clicked")
     this.currentEmployee=''+val
+    if(this.stack.includes(val)){
+      continue;
+    }else{
+
+    
     this.stack.push(val)
+    }
     }
   }
 
